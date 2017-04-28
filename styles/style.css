@@ -1,0 +1,30 @@
+body {
+    background-color: #f9f9f9;
+    margin-left: 27%;
+    margin-right: 27%;
+    font-family: "Courier New", Courier, monospace;
+    text-align: justify;
+}
+
+@media (max-width: 900px) {
+    body {
+        margin-left: 16%;
+        margin-right: 16%;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+}
+
+p {
+    /*font-family: "Courier New", Courier, monospace;*/
+}
+
+#poema {
+    text-align: left;
+    /*margin-right: 50%;*/
+}
