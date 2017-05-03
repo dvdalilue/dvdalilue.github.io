@@ -28,3 +28,29 @@ p {
     text-align: left;
     /*margin-right: 50%;*/
 }
+
+#title div,h1 {
+    display: inline-block;
+}
+
+#entry-list-order {
+    /*font-size: 10pt;*/
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    text-decoration: none;
+
+}
+
+#entry-list-order:hover {
+    cursor: pointer;
+}
+
+.entry-title h2, .date {
+    display: inline-block;
+}
+
+.entry-title .date {
+    color: #808080;
+    font-style: italic;
+}
