@@ -1,20 +1,20 @@
 body {
     background-color: #f9f9f9;
-    margin-left: 27%;
-    margin-right: 27%;
+/*    margin-left: 27%;
+    margin-right: 27%;*/
     font-family: "Courier New", Courier, monospace;
     text-align: justify;
 }
 
 @media (max-width: 900px) {
-    body {
+    .centering {
         margin-left: 16%;
         margin-right: 16%;
     }
 }
 
 @media (max-width: 600px) {
-    body {
+    .centering {
         margin-left: 7%;
         margin-right: 7%;
     }
@@ -31,6 +31,62 @@ p {
 
 #title div,h1 {
     display: inline-block;
+}
+
+.centering {
+    margin-right: 27%;
+    margin-left: 27%;
+}
+
+.sidebar {
+    position: fixed;
+    width: 27%;
+}
+
+.right-sidebar {
+    position: fixed;
+    width: 27%;
+    margin-left: 73%;
+}
+
+.right-sidebar h3, a {
+    text-align: center;
+    display: block;
+    margin: 10%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.sidebar h3, a {
+    text-align: center;
+    display: block;
+    margin: 10%;
+    margin-right: 20%;
+    margin-left: 20%;
+}
+
+.mark {
+    display: inline;
+    float: left;
+    margin-left: 12%;
+    padding: 0;
+    visibility: hidden;
+}
+
+.filter_link {
+    height: auto;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.red {
+    background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
 }
 
 #entry-list-order {
