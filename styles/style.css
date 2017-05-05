@@ -49,18 +49,24 @@ p {
     margin-left: 73%;
 }
 
-.right-sidebar h3, a {
+.right-sidebar h3 {
     text-align: center;
-    display: block;
-    margin: 10%;
-    margin-right: 20%;
-    margin-left: 20%;
 }
 
-.sidebar h3, a {
+.right-sidebar a {
     text-align: center;
     display: block;
-    margin: 10%;
+    margin: 5%;
+}
+
+.sidebar h3 {
+    text-align: center;
+}
+
+.sidebar a {
+    text-align: center;
+    display: block;
+    margin: 5%;
     margin-right: 20%;
     margin-left: 20%;
 }
@@ -91,6 +97,15 @@ p {
     margin: 0%;
     margin-left: 20%;
     margin-right: 20%;
+}
+
+@media (max-width: 765px) {
+    #selection-border {
+        width: 90%;
+        margin: 0%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
 }
 
 .filter_link {

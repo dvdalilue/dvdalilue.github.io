@@ -15,3 +15,26 @@ function invert_order(list) {
         order.textContent = 'hacia el pasado'
     }
 }
+
+function putBefore(element1, element2) {
+    $(element1).animate(
+        {
+            top: '+=' + ($(element2).offset().top - $(element1).offset().top) + 'px'
+        },
+        500,
+        function() {
+            $(element1).get(0).parentNode.insertBefore($(element1).get(0),
+                                                       $(element2).get(0));
+            $(element1).css({'top' : ''});
+            }
+        );
+        $(element1).text($(element2).text());
+};
+
+$(document).ready(function(){
+    $('.filter_link').click(function(event) {
+        for (var e of $('.mark')) { $(e).css({'opacity':'0'}) }
+
+        $($('#'+$(this).attr('id')).get(0)).css({'opacity':'1'})
+    });
+});

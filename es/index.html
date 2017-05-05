@@ -6,60 +6,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+        <link rel="manifest" href="manifest.json">
+        <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="theme-color" content="#ffffff">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="../js/functions.js"></script>
-        <script src="../js/swapsie.js"></script>
 
         <script type="text/javascript">
-            // function filter_pressed(mark_id) {
-            //     marks = document.getElementsByClassName('mark')
 
-
-            // }
-            $(document).ready(function(){
-                $('#todo').click(function() {
-                    $('#1').css({'opacity':'1.0'})
-                    $('#2').css({'opacity':'0.0'})
-                    $('#3').css({'opacity':'0.0'})
-                })
-                $('#trabajo').click(function() {
-                    $('#1').css({'opacity':'0.0'})
-                    $('#2').css({'opacity':'1.0'})
-                    $('#3').css({'opacity':'0.0'})
-                })
-                $('#tiempo').click(function() {
-                    $('#1').css({'opacity':'0.0'})
-                    $('#2').css({'opacity':'0.0'})
-                    $('#3').css({'opacity':'1.0'})
-                })
-            })
-
-            $(document).ready(function() {  
-                $("#musi").click(function() {  
-                    $("#selection-border").animate({
-                            top: $('#selection-border').position().top + ($('#musi').offset().top - $('#selection-border').offset().top) + 'px'
-                        },
-                        500
-                    );
-                    $("#selection-border").text('música')
-                });
-                $("#comp").click(function() {  
-                    $("#selection-border").animate({
-                            top: $('#selection-border').position().top + ($('#comp').offset().top - $('#selection-border').offset().top) + 'px'
-                        },
-                        500
-                    );
-                    $("#selection-border").text('computación')
-                });
-                $("#cosa").click(function() {  
-                    $("#selection-border").animate({
-                            top: $('#selection-border').position().top + ($('#cosa').offset().top - $('#selection-border').offset().top) + 'px'
-                        },
-                        500
-                    );
-                    $("#selection-border").text('cualquier cosa')
-                });
-            });
         </script>
     </head>
 
@@ -75,19 +32,25 @@
             <div class="sidebar">
                 <h3>en:</h3>
                 <div>
-                    <div class="mark" id="1" style="opacity: 1.0;">
+                    <div class="mark" id="todo" style="opacity: 1.0;">
                         >
                     </div>
                     <a class="filter_link yellow" id="todo" href="javascript:void(0)">todo</a>
                 </div>
                 <div>
-                    <div class="mark" id="2">
+                    <div class="mark" id="trabajo">
                         >
                     </div>
                     <a class="filter_link blue" id="trabajo" href="javascript:void(0)">el trabajo</a>
                 </div>
                 <div>
-                    <div class="mark" id="3">
+                    <div class="mark" id="academia">
+                        >
+                    </div>
+                    <a class="filter_link" id="academia" href="javascript:void(0)">la academia</a>
+                </div>
+                <div>
+                    <div class="mark" id="tiempo">
                         >
                     </div>
                     <a class="filter_link red" id="tiempo" href="javascript:void(0)">lo demás</a>
@@ -97,9 +60,12 @@
                 <h3>acerca de:</h3>
                 <div>
                     <p id="selection-border">cualquier cosa</p>
-                    <a class="filter_kind" id="cosa" href="javascript:void(0)">cualquier cosa</a>
-                    <a class="filter_kind" id="comp" href="javascript:void(0)">computación</a>
-                    <a class="filter_kind" id="musi" href="javascript:void(0)">música</a>
+                    <a class="filter_kind" id="cosa" onclick="putBefore('#selection-border', this)" href="#">cualquier cosa</a>
+                    <a class="filter_kind" id="comp" onclick="putBefore('#selection-border', this)" href="#">computación</a>
+                    <a class="filter_kind" id="musi" onclick="putBefore('#selection-border', this)" href="#">música</a>
+                    <a class="filter_kind" id="lite" onclick="putBefore('#selection-border', this)" href="#">literatura</a>
+                    <a class="filter_kind" id="cine" onclick="putBefore('#selection-border', this)" href="#">cine</a>
+                    <a class="filter_kind" id="nada" onclick="putBefore('#selection-border', this)" href="#">nada</a>
                 </div>
             </div>
 
