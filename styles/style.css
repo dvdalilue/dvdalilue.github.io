@@ -70,7 +70,27 @@ p {
     float: left;
     margin-left: 12%;
     padding: 0;
-    visibility: hidden;
+    opacity: 0.0;
+    transition: all 0.7s;
+}
+
+.filter_kind {
+/*    border: 1px;
+    border-color: black;*/
+}
+
+#selection-border {
+    position: absolute;
+    color: rgba(1,1,1,0);
+    border: 1px;
+    border-color: #000;
+    border-style: dashed;
+    text-align: center;
+    display: block;
+    width: 60%;
+    margin: 0%;
+    margin-left: 20%;
+    margin-right: 20%;
 }
 
 .filter_link {

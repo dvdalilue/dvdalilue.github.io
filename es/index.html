@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="../styles/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
         <script src="../js/functions.js"></script>
+        <script src="../js/swapsie.js"></script>
 
         <script type="text/javascript">
             // function filter_pressed(mark_id) {
@@ -17,21 +18,48 @@
             // }
             $(document).ready(function(){
                 $('#todo').click(function() {
-                    $('#1').css({'visibility':'visible'})
-                    $('#2').css({'visibility':'hidden'})
-                    $('#3').css({'visibility':'hidden'})
+                    $('#1').css({'opacity':'1.0'})
+                    $('#2').css({'opacity':'0.0'})
+                    $('#3').css({'opacity':'0.0'})
                 })
                 $('#trabajo').click(function() {
-                    $('#1').css({'visibility':'hidden'})
-                    $('#2').css({'visibility':'visible'})
-                    $('#3').css({'visibility':'hidden'})
+                    $('#1').css({'opacity':'0.0'})
+                    $('#2').css({'opacity':'1.0'})
+                    $('#3').css({'opacity':'0.0'})
                 })
                 $('#tiempo').click(function() {
-                    $('#1').css({'visibility':'hidden'})
-                    $('#2').css({'visibility':'hidden'})
-                    $('#3').css({'visibility':'visible'})
+                    $('#1').css({'opacity':'0.0'})
+                    $('#2').css({'opacity':'0.0'})
+                    $('#3').css({'opacity':'1.0'})
                 })
             })
+
+            $(document).ready(function() {  
+                $("#musi").click(function() {  
+                    $("#selection-border").animate({
+                            top: $('#selection-border').position().top + ($('#musi').offset().top - $('#selection-border').offset().top) + 'px'
+                        },
+                        500
+                    );
+                    $("#selection-border").text('música')
+                });
+                $("#comp").click(function() {  
+                    $("#selection-border").animate({
+                            top: $('#selection-border').position().top + ($('#comp').offset().top - $('#selection-border').offset().top) + 'px'
+                        },
+                        500
+                    );
+                    $("#selection-border").text('computación')
+                });
+                $("#cosa").click(function() {  
+                    $("#selection-border").animate({
+                            top: $('#selection-border').position().top + ($('#cosa').offset().top - $('#selection-border').offset().top) + 'px'
+                        },
+                        500
+                    );
+                    $("#selection-border").text('cualquier cosa')
+                });
+            });
         </script>
     </head>
 
@@ -47,7 +75,7 @@
             <div class="sidebar">
                 <h3>en:</h3>
                 <div>
-                    <div class="mark" id="1" style="visibility: visible;">
+                    <div class="mark" id="1" style="opacity: 1.0;">
                         >
                     </div>
                     <a class="filter_link yellow" id="todo" href="javascript:void(0)">todo</a>
@@ -67,6 +95,12 @@
             </div>
             <div class="right-sidebar">
                 <h3>acerca de:</h3>
+                <div>
+                    <p id="selection-border">cualquier cosa</p>
+                    <a class="filter_kind" id="cosa" href="javascript:void(0)">cualquier cosa</a>
+                    <a class="filter_kind" id="comp" href="javascript:void(0)">computación</a>
+                    <a class="filter_kind" id="musi" href="javascript:void(0)">música</a>
+                </div>
             </div>
 
             <div class="entry-list centering">
