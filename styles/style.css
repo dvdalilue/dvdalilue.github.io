@@ -152,6 +152,41 @@ p {
     /*margin-top: 40%;*/
 }
 
+.album {
+    max-width: 40%;
+    margin-bottom: 2em;
+    /*min-width: 200px;*/
+}
+
+@media (max-width: 885px) {
+    .album {
+        max-width: 80%;
+        /*min-width: 0px;*/
+    }
+}
+
+@media (max-width: 440px) {
+    .sidebar {
+        /*visibility: hidden;*/
+        display: none;
+    }
+
+    .right-sidebar {
+        /*visibility: hidden;*/
+        display: none;
+    }
+
+    .centering {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    .album {
+        max-width: 100%;
+        /*min-width: 0px;*/
+    }
+}
+
 .resume img {
     width: 20%;
     height: auto;
