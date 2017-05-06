@@ -145,3 +145,17 @@ p {
     color: #808080;
     font-style: italic;
 }
+
+.resume {
+    /*position: fixed;*/
+    /*margin-left: 80%;*/
+    /*margin-top: 40%;*/
+}
+
+.resume img {
+    width: 20%;
+    height: auto;
+    margin-top: 20%;
+    margin-left: 40%;
+    margin-right: 40%;
+}
