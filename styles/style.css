@@ -85,6 +85,14 @@ p {
     border-color: black;*/
 }
 
+.hidden {
+    display: none;
+}
+
+.visible {
+    /*display: none;*/
+}
+
 #selection-border {
     position: absolute;
     color: rgba(1,1,1,0);

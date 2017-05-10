@@ -21,7 +21,15 @@
         <meta name="twitter:image" content="https://pbs.twimg.com/profile_images/794220720830218240/r5Tu91kt.jpg" />
 
         <script type="text/javascript">
+        function show(cls) {
+            for (var e of $('.entry')) {
+                $(e).addClass('hidden')
+            }
 
+            for (var e of $(cls)) {
+                $(e).removeClass('hidden')
+            }
+        }
         </script>
     </head>
 
@@ -68,17 +76,17 @@
                 <h3>acerca de:</h3>
                 <div>
                     <p id="selection-border">cualquier cosa</p>
-                    <a class="filter_kind" id="cosa" onclick="putBefore('#selection-border', this)" href="#">cualquier cosa</a>
+                    <a class="filter_kind" id="cosa" onclick="putBefore('#selection-border', this); show('.any')" href="#">cualquier cosa</a>
                     <a class="filter_kind" id="comp" onclick="putBefore('#selection-border', this)" href="#">computación</a>
                     <a class="filter_kind" id="musi" onclick="putBefore('#selection-border', this)" href="#">música</a>
                     <a class="filter_kind" id="lite" onclick="putBefore('#selection-border', this)" href="#">literatura</a>
                     <a class="filter_kind" id="cine" onclick="putBefore('#selection-border', this)" href="#">cine</a>
-                    <a class="filter_kind" id="nada" onclick="putBefore('#selection-border', this)" href="#">nada</a>
+                    <a class="filter_kind" id="nada" onclick="putBefore('#selection-border', this); show('.nothing')" href="#">nada</a>
                 </div>
 
             </div>
             <div class="entry-list centering">
-                <div class="entry nothing">
+                <div class="entry nothing hidden">
                     <div class="entry-title">
                         <h2><i>Es un reflejo</i></h2>
                         <div class="date">10-05-2017</div>
@@ -87,7 +95,7 @@
                         Cualquiera que haya jugado algún juego, en especial un video juego, se da cuenta que a medida de que avanza, la dificultad incrementa. Eso es lo que nos mantiene jugando. No dejarnos vencer pese a la dificultad y si en algún punto todo se torna fácil, habrá perdido la esencia. Es probable que en algún punto haya visto alguna publicación que hable de la similitud entre un video juego y la vida. Afirmando que la vida es como un video juego donde hay una sola vida, suena interesante. Yo pensaría que los video juegos, las computadoras y la mayoría de las cosas son extensiones de nuestra realidad y entorno, un espejo de lo que es el ser humano; no más que un vulgar reflejo.
                     </p>
                 </div>
-                <div class="entry">
+                <div class="entry any">
                     <div class="entry-title">
                         <h2><i>Sistemático</i></h2>
                         <div class="date">07-05-2017</div>
@@ -96,7 +104,7 @@
                         Tiendo a ser bastante sistemático, podría decir que repetitivo; no es apropósito. Me gusta sentir orden en mi entorno, que diariamente se conserve igual como yo sentía el día anterior, y estar al tanto de, si existe alguna diferencia, quien tuvo que ver con ese cambio. Tendía a molestarme de manera descontrolada por cualquier cosa fuera de su sitio, eso se ha reducido bastante a lo largo de los años gracias a que vivo en una residencia desde hace 7 años y he tenido que convivir con varios tipos de personas. Más de 24?. A pesar de, conservo la esencia de ese comportamiento y no creo que la pierda. Considero que no aprendi a dejar de tan sistemático, aprendí como lidiar con ello y que los demás supiensen como lidiar conmigo. 
                     </p>
                 </div>
-                <div class="entry">
+                <div class="entry any music">
                     <div class="entry-title">
                         <h2><i>This Old Dog</i></h2>
                         <div class="date">06-05-2017</div>
@@ -109,7 +117,7 @@
                         <img class="album" src="images/salad_days.jpg">                        
                     </div>
                 </div>
-                <div class="entry">
+                <div class="entry any">
                     <div class="entry-title">
                         <h2>Quien es un artista?</h2>
                         <div class="date">05-05-2017</div>
@@ -144,7 +152,7 @@
                         <li>Haruki Murakami</li>
                     </ul>
                 </div>
-                <div class="entry">
+                <div class="entry any cmp nothing">
                     <div class="entry-title">
                         <h2>Que se me pasa por la mente?</h2>
                         <div class="date">03-05-2017</div>
@@ -162,7 +170,7 @@
                         decidirlo. 
                     </p>
                 </div>
-                <div class="entry"> 
+                <div class="entry any"> 
                     <div class="entry-title">
                         <h2>Como podría describirme?</h2>
                         <div class="date">28-04-2017</div>
@@ -190,7 +198,7 @@
                         Ahora veo que eso me a llenado momentaneamente<br>
                     </div>
                 </div>
-                <div class="entry"> 
+                <div class="entry any"> 
                     <div class="entry-title">
                         <h2>Intereses</h2>
                         <div class="date">28-04-2017</div>
@@ -200,7 +208,7 @@
                         tipos de arte como la música, cine, fotografía, pintura, literatura.   
                     </p>
                 </div>
-                <div class="entry"> 
+                <div class="entry any"> 
                     <div class="entry-title">
                         <h2>Trabajos actuales</h2>
                         <div class="date">28-04-2017</div>
@@ -212,7 +220,7 @@
                         <li><b>Desarrollador Web</b>. En ciertas ocasiones he diseñado y desarrollado páginas web para distintos fines</li>
                     </ul>
                 </div>
-                <div class="entry"> 
+                <div class="entry any"> 
                     <div class="entry-title">
                         <h2>Que me da curiosidad?</h2>
                         <div class="date">28-04-2017</div>
@@ -238,7 +246,7 @@
                     las carencias de cada entorno con lo que pueda proveer el otro. 
                     </p>
                 </div>
-                <div class="entry"> 
+                <div class="entry any"> 
                     <div class="entry-title">
                         <h2>Donde estoy ahora?</h2>
                         <div class="date">28-04-2017</div>
