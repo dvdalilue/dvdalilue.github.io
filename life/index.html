@@ -3,164 +3,28 @@
 <head>
     <title>Life</title>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-
-    <style type="text/css">
-        .board {
-            top: 0;
-            left: 0;
-            z-index: -1;
-        }    
-
-
-        table {
-            width: 100%;
-            height: 100%;
-            border-width: 0pt;
-        }
-
-        .dead {
-            background-color: #fff;
-            transition: all .4s;
-        }
-
-        .alive {
-            background-color: #000;
-            transition: all .4s;
-        }
-
-        .board {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-
-    <script type="text/javascript">
-        randomArray = (length, max) => [...new Array(length)].map(() => Math.round(Math.random() * max));
-
-        randomMatrix = (rows, columns) => [...new Array(rows)].map(() => randomArray(columns,1))
-
-        var matrix = undefined;
-
-        function wait(ms) {
-            var start = new Date().getTime();
-            var end = start;
-            while(end < start + ms) {
-                end = new Date().getTime();
-            }
-        }
-
-        function create() {
-            matrix = undefined;
-
-            refresh();
-        }
-
-        function refresh() {
-            var rows = Math.min(parseInt(document.getElementById('rows').value),document.documentElement.clientWidth/2);
-            var columns = Math.min(parseInt(document.getElementById('columns').value),document.documentElement.clientHeight/2);
-
-            matrix == undefined ? matrix = randomMatrix(rows,columns) : matrix; 
-
-            $('tr').remove();
-            
-            for (var i = 0; i < rows; i++) {
-                var table_row = document.createElement('tr');
-                for (var j = 0; j < columns; j++) {
-                    var table_data = document.createElement('td');
-                    if (1 == matrix[i][j]) {
-                        table_data.className = 'alive';
-                    } else {
-                        table_data.className = 'dead';
-                    };
-                    table_row.appendChild(table_data);
-                };
-                document.getElementById('pietri').appendChild(table_row);
-            };
-        };
-
-        // var int=self.setInterval(function, 60000);
-
-        function zero2D(rows, cols) {
-            var array = [], row = [];
-            while (cols--) row.push(0);
-            while (rows--) array.push(row.slice());
-            return array;
-        }
-
-        function change() {
-            var rows = matrix.length
-            var columns = matrix[0].length
-
-            var aux_mat = zero2D(rows,columns); //jQuery.extend(true, {}, matrix);
-
-            var count = 0;
-
-            for (var i = 0; i < rows; i++) {
-                for (var j = 0; j < columns; j++) {
-                    count = 0;
-
-                    if (i > 0 & j > 0 & i < rows-1 & j < columns-1) {
-                        matrix[i + 1][  j  ] == 1 ? count += 1 : count += 0;
-                        matrix[i - 1][  j  ] == 1 ? count += 1 : count += 0;
-                        matrix[  i  ][j + 1] == 1 ? count += 1 : count += 0;
-                        matrix[  i  ][j - 1] == 1 ? count += 1 : count += 0;
-                        matrix[i - 1][j + 1] == 1 ? count += 1 : count += 0;
-                        matrix[i + 1][j - 1] == 1 ? count += 1 : count += 0;
-                        matrix[i + 1][j + 1] == 1 ? count += 1 : count += 0;
-                        matrix[i - 1][j - 1] == 1 ? count += 1 : count += 0;
-                    } else {
-
-                    }
-                    if (matrix[i][j] == 1) {
-                        if      (count < 2) { aux_mat[i][j] = 0 }
-                        else if (count < 4) { aux_mat[i][j] = 1 }
-                        else                { aux_mat[i][j] = 0 };
-                    } else {
-                        if (count == 3) { aux_mat[i][j] = 1 };
-                    };
-                };
-            };
-
-            matrix = aux_mat;
-
-            $('tr').remove();
-            
-            refresh();
-            setTimeout(change, 1);
-            // wait(500);
-        };
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="life.js"></script>
+    <link rel="stylesheet" type="text/css" href="life.css">
 </head>
 <body>
-    <input type="text" id="rows" value="40">
-    <input type="text" id="columns" value="70">
-    <button type="button" onclick="create()">create</button>
-    <button type="button" onclick="change()">change</button>
+    <div id="menu">
+        Rows: <input type="text" id="rows" value="70" size="3" maxlength="3">
+        Columns: <input type="text" id="columns" value="150" size="3" maxlength="3">
+        <button type="button" class="btn btn-primary" onclick="create()">New</button>
+        <button type="button" class="btn btn-success" onclick="timeout ? true : change()">Play</button>
+        <button type="button" class="btn btn-warning" onclick="reset()">Reset</button>
+        <button type="button" class="btn btn-danger" onclick="stop()">Stop</button>
+    </div>
     <div class="board">
-        <table id="bacters" cellspacing="0">
-    <!--         <thead>
-                <tr>
-                    <th>Col 1</th>
-                    <th>Col 2</th>
-                    <th>Col 3</th>
-                    <th colspan="3">Col 4</th>
-                </tr>
-            </thead> -->
-            <tbody id="pietri">
-    <!--             <tr>
-                    <td class="dead"></td>
-                    <td class="alive"></td>
-                    <td class="dead"></td>
-                </tr>
-                <tr>
-                    <td class="alive"></td>
-                    <td class="dead"></td>
-                    <td class="alive"></td>
-                </tr> -->
+        <table id="bacteria" cellspacing="0">
+            <tbody id="petri">
             </tbody>
         </table>
     </div>
+<!--     <script type="text/javascript">
+        showMenu();
+    </script> -->
 </body>
 </html>
