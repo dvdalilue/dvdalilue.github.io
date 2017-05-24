@@ -36,5 +36,20 @@ $(document).ready(function(){
         for (var e of $('.mark')) { $(e).css({'opacity':'0'}) }
 
         $($('#'+$(this).attr('id')).get(0)).css({'opacity':'1'})
+
+        if ($(this).attr('id') === 'all') {
+            $.map($('.entry'), function(i) {
+                $(i).css({'display' : ''})
+            })
+            return
+        }
+
+        $.map($('.entry'), function(i) {
+            $(i).css({'display' : 'none'})
+        })
+        
+        for (var e of $('.' + $(this).attr('id'))) {
+            $(e).css({'display' : ''})
+        }
     });
 });
