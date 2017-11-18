@@ -86,6 +86,38 @@
 
             </div>
             <div class="entry-list centering">
+                <div class="entry any cs academic">
+                    <div class="entry-title">
+                        <h2><i>La división. El poder semántico de un programa</i></h2>
+                        <div class="date">18-11-2017</div>
+                    </div>
+                    <p>
+                        Quiero dejar una fragmento de código que me ha hecho ver porque la división por cero es indefinida. Esto da muchas razones por las cuales la computación es un instrumento para el entendimiento de las matemáticas y porque todo el mundo debería, al menos, poder leer el código de algún programa, así como actualmente es esencial hablar inglés. Por razones de practicidad está escrito en Ruby.
+                    </p>
+
+                    <figure>
+                        <pre>
+                        <code>
+                        # division(a,b) = a * c + k
+                        # 'c' es el cociente
+                        # 'k' es el resto
+                        def division a, b
+                            k = a
+                            c = 0
+
+                            while k >= b
+                                k = k - b
+                                c = c + 1
+                            end
+
+                            return c,k
+                        end
+                        </code>
+                        </pre>
+                    </figure>
+
+                    Haciendo la suposición de que los números serán naturales y que 0 es un número natural, se puede notar que dividir por 0, es decir, que b tenga 0 como valor, el programa nunca terminará y no se podría definir un resultado.
+                </div>
                 <div class="entry any academic">
                     <div class="entry-title">
                         <h2><i>Motivación</i></h2>
@@ -305,10 +337,10 @@
                 </div>
             </div>
         </div>
-        <script>
+ <!--        <script>
             window.onload = function() {
                 $('.blue').click();
             }
-        </script>
+        </script> -->
     </body>
 </html>
