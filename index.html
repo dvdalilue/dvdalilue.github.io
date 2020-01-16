@@ -86,6 +86,89 @@
 
             </div>
             <div class="entry-list centering">
+                <div class="entry all any cs">
+                    <div class="entry-title">
+                        <h2><i>Orden en el caos</i></h2>
+                        <div class="date">16-01-2020</div>
+                    </div>
+                    <p>
+                        Las matemáticas siempre han sido algo que me interesa, para mi es una herramienta que nos permite entender el mundo y se encuentra tanto en la naturaleza como en lo abstracto. Galileo dijo una vez que: &laquo;<i>Las matemáticas son el lenguaje con el que Dios ha escrito el universo</i>&raquo;. Uniendo dos entidades en una misma oración que suelen ser separados en la sociedad, la religión y la ciencia. Hay puntos de vista donde la vida tiene un destino y otros donde no hay dirección o sentido. Existe ese conflicto entre el orden y el caos pero al final puede que sean cosas no tan desligadas entre sí.
+                    </p>
+                    <p>
+                        Hice un breve programa que usa elementos aleatorios y un conjunto de reglas para visualizar que, a pesar del azar, se pueden generar estructuras definidas. No es algo propio pero lo ví y quise hacerlo yo mismo. Simplemente marca 4 puntos dentro del recuadro, los primeros 3 serán los vértices de un triangulo y el cuarto es el punto de partida. De forma automática, a paritr del punto de partida, se selecciona de forma aleatoria un vértice y se pintará el punto medio entre ellos. Ese punto medio será luego el punto de partida, repitiendo el proceso anterior. Dando como resultado un fractal.
+                    </p>
+                    <button type="button" class="btn btn-primary" onclick="setCanvasSize();" style="margin-bottom: 10px">Reset</button>
+
+                    <canvas id="chaos-canvas">
+                        Your browser does not support the canvas element.
+                    </canvas>
+
+                    <script>
+                        var canvas = document.getElementById("chaos-canvas");
+                        var ctx = canvas.getContext("2d");
+                        var tdots = [];
+                        const max_size = 3;
+
+                        function setCanvasSize(){
+                            canvas.addEventListener('click', drawMouseClickPos);
+                            tdots = [];
+                            ctx.canvas.width = canvas.offsetWidth;
+                            ctx.canvas.height = canvas.offsetHeight;
+                        }
+
+                        function drawPixel(x, y, r, g, b, a) {
+                            var canvasData = ctx.getImageData(0,0,canvas.width, canvas.height);
+
+                            var index = (x + y * canvas.width) * 4;
+
+                            canvasData.data[index + 0] = r;
+                            canvasData.data[index + 1] = g;
+                            canvasData.data[index + 2] = b;
+                            canvasData.data[index + 3] = a;
+
+                            ctx.putImageData(canvasData, 0, 0);
+                        }
+
+                        function getMousePos(canvas, evt) {
+                          var rect = canvas.getBoundingClientRect();
+                          return {
+                            x: Math.round(evt.clientX - rect.left),
+                            y: Math.round(evt.clientY - rect.top)
+                          };
+                        }
+
+                        function midpoint(a, b) {
+                          return {
+                            x: Math.round((a.x + b.x) / 2),
+                            y: Math.round((a.y + b.y) / 2)
+                          };
+                        }
+
+                        function drawMouseClickPos(evt) {
+                          var position = getMousePos(canvas, evt);
+
+                          if (tdots.length >= max_size) {
+                            canvas.removeEventListener('click', drawMouseClickPos);
+                            chaos(position);
+                          }
+
+                          tdots.push(position);
+
+                          drawPixel(position.x, position.y, 0, 0, 0, 255);
+                        }
+
+                        function chaos(currentPosition) {
+                          var rand = Math.floor(Math.random() * max_size);
+                          currentPosition = midpoint(tdots[rand], currentPosition);
+                          drawPixel(currentPosition.x, currentPosition.y, 0, 0, 0, 255);
+                          setTimeout(chaos.bind(null, currentPosition), 5);
+                        }
+
+                        document.addEventListener("DOMContentLoaded", function(event) {
+                            setCanvasSize();
+                        });
+                    </script>
+                </div>
                 <div class="entry all book">
                     <div class="entry-title">
                         <h2><i>1894</i></h2>
